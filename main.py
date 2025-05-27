@@ -1,7 +1,7 @@
-from scraper import get_news_from_google, get_news_from_tech_sites
-from summarizer import summarize_text
-from reporter import create_report
-from emailer import send_email_report
+from veille_ia.scraper import get_news_from_google, get_news_from_tech_sites
+from veille_ia.summarizer import summarize_text
+from veille_ia.reporter import create_report
+from veille_ia.emailer import send_email_report
 from settings import default_topic, default_source, attachment_filename
 
 
