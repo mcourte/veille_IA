@@ -1,8 +1,0 @@
-Rapport de veille sur : intelligence artificielle
-
-Titre : The Browser Company mulls selling or open-sourcing Arc Browser amid AI-focused pivot
-Résumé :  The Browser Company said it is considering selling or open-sourcing its Arc Browser . The company has been issuing bug fixes and security updates to Arc, but has stopped developing the app and adding features to it . It is now focusing on developing a new, AI-powered browser called Dia .
-
-Titre : One of Europe’s top AI researchers raised a $13M seed to crack the ‘holy grail’ of models
-Résumé :  Matthias Niessner has taken an entrepreneurial leave of absence from his visual computing & AI lab at the Technical University of Munich to found a startup working in the area . He has raised an unusually large seed round for a European startup of $13 million . The round was led by Earlybird Venture Capital .
-

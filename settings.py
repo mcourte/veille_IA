@@ -8,9 +8,9 @@ default_source = "Sites techniques"  # Ou "Google News"
 report_file = Path("rapport.txt")
 
 # Configuration e-mail par défaut
-email_sender = "mcourte@outlook.fr"  # Adresse expéditrice (à vérifier sur SendGrid)
+email_sender = "mcourte@outlook.fr"
 email_subject = "Rapport de veille IA"
-email_body = "Bonjour,\n\nVeuillez trouver ci-joint le rapport de veille IA généré automatiquement."
+email_body = "Bonjour,\n\nVeuillez trouver ci-joint le rapport de veille généré automatiquement."
 attachment_filename = "rapport.txt"
 
 
