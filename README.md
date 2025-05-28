@@ -38,5 +38,5 @@ pip install -r requirements.txt
 
 ### 4. Lancer l'application
 ```
-streamlit run app.py
+streamlit run app.py --logger.level=error
 ```
