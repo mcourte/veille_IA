@@ -1,10 +1,10 @@
 from veille_ia.scraper import get_news_from_google, get_news_from_tech_sites
 from veille_ia.summarizer import summarize_text
-from veille_ia.reporter import create_report
 from veille_ia.emailer import send_email_report
 from settings import default_topic, default_source, attachment_filename
 
 
+# A utiliser dans le futur, pour envoie par mail quotidien
 def run_daily_report():
     topic = default_topic
     source = default_source
@@ -21,9 +21,6 @@ def run_daily_report():
         except Exception as e:
             summary = f"(Erreur de résumé : {e})"
         summaries.append((title, summary))
-
-    # Générer le rapport
-    create_report(summaries, topic)
 
     # Demander l'adresse email à l'utilisateur
     receiver_email = input("Entrez votre adresse e-mail pour recevoir le rapport : ").strip()

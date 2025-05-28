@@ -2,7 +2,7 @@ from pathlib import Path
 
 # Sujet et source par défaut
 default_topic = "intelligence artificielle"
-default_source = "Sites techniques"  # Ou "Google News"
+default_source = "Sites techniques"
 
 # Rapport
 report_file = Path("rapport.txt")

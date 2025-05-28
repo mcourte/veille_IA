@@ -1,13 +1,14 @@
 import streamlit as st
-from scraper import get_news_from_google, get_news_from_tech_sites
-from emailer import send_email_report
-from html_rapport import generate_email_html
+from veille_ia.scraper import get_news_from_google, get_news_from_tech_sites
+from veille_ia.emailer import send_email_report
+from veille_ia.html_rapport import generate_email_html
+from veille_ia.summarizer import summarize_text
 
 st.set_page_config(page_title="Veille IA", page_icon="🤖")
 
 st.title("🤖 Générateur de Rapport de Veille IA")
 
-# Entrée utilisateur
+# Entrée utilisateur, avec un sujet pré rempli
 topic = st.text_input("🧠 Sujet à surveiller :", value="intelligence artificielle")
 
 # Choix multiple de sources
@@ -35,11 +36,14 @@ if st.button("🚀 Lancer la veille et envoyer le rapport"):
             st.subheader("📰 Articles Google News")
             for title, link in google_news:
                 st.markdown(f"- [{title}]({link})")
-
         if tech_news:
             st.subheader("💻 Articles Sites Techniques")
             for title, link in tech_news:
-                st.markdown(f"- [{title}]({link})")
+                try:
+                    summary = summarize_text(link)
+                except Exception as e:
+                    summary = f"*Résumé non disponible ({e})*"
+                st.markdown(f"**{title}**  \n{summary}  \n[Lire la suite]({link})")
 
         # Génération HTML
         html_content = generate_email_html(google_news, tech_news, topic)

@@ -2,6 +2,7 @@ import feedparser
 from GoogleNews import GoogleNews
 
 
+# Utilisation de la bibliothèque GoogleNews pour parcourir les données du site.
 def get_news_from_google(topic):
     """
     Récupère des articles depuis Google News en français, selon un sujet donné.
@@ -9,15 +10,21 @@ def get_news_from_google(topic):
     gn = GoogleNews(lang='fr')
     gn.search(topic)
     results = gn.results(sort=True)
-    return [(res['title'], res['link']) for res in results[:5]]
+    return [(res['title'], res['link']) for res in results[:10]]
 
 
+# Choix des sources dans laquelle aller chercher des articles
 RSS_FEEDS = [
     "https://techcrunch.com/feed/",
     "https://www.theverge.com/rss/index.xml",
     "http://feeds.arstechnica.com/arstechnica/index",
     "https://hnrss.org/frontpage",
 ]
+
+# La lanque de Google News est le français. Pour pouvoir trouver des articles
+# sur des sites techniques, j'ai crée un petit dictionnaire de traduction
+# pour quelques mots-clés
+
 
 # Traduction et synonymes
 KEYWORD_SYNONYMS = {
@@ -33,9 +40,6 @@ def get_news_from_tech_sites(keyword=None):
     """
     Récupère les articles récents des sites techniques.
     Si un mot-clé est fourni, filtre les articles contenant ce mot-clé ou ses synonymes.
-
-    :param keyword: str ou None — mot-clé à filtrer (ex: "intelligence artificielle")
-    :return: liste de tuples (titre, lien)
     """
     if keyword:
         keyword_lower = keyword.lower()
@@ -50,7 +54,7 @@ def get_news_from_tech_sites(keyword=None):
 
     for url in RSS_FEEDS:
         feed = feedparser.parse(url)
-        for entry in feed.entries[:5]:
+        for entry in feed.entries[:10]:
             title = entry.get("title", "")
             link = entry.get("link", "")
 
@@ -62,6 +66,8 @@ def get_news_from_tech_sites(keyword=None):
             if matched:
                 articles.append((title, link))
 
+    # Dans le cas où il ne trouve aucun article correspondant au mot-clé
+    # Il affiche les derniers articles publiés sur les sites techniques.
     if not articles and keyword:
         return get_news_from_tech_sites(keyword=None)
 

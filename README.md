@@ -1,6 +1,6 @@
 # 🤖 Veille IA – Générateur de Rapport d’Actualités
 
-Une application Streamlit qui vous permet de générer un rapport personnalisé sur un sujet technologique (par défaut : l'intelligence artificielle) en sélectionnant les sources d'actualité souhaitées. Le rapport est affiché dans l'interface et peut être envoyé par e-mail au format HTML.
+Une application Streamlit qui vous permet de générer un **rapport personnalisé sur un sujet choisi** (par défaut : l'intelligence artificielle) en sélectionnant les sources d'actualité souhaitées. Le rapport est affiché dans l'interface et peut être envoyé par e-mail au format HTML.
 
 ---
 

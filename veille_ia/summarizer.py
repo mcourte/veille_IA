@@ -2,9 +2,11 @@
 from transformers import pipeline
 from newspaper import Article
 
+# utilisation du modèle distilbartbart-cnn-12-6 ( version distillée, entraînée sur le DataSet CNN/Dailymail)
 summarizer = pipeline("summarization", model="sshleifer/distilbart-cnn-12-6")
 
 
+# Permet de résumé l'article
 def summarize_text(article_url):
     article = Article(article_url)
     article.download()
